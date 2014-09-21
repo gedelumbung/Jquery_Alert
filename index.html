@@ -1,0 +1,57 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+<link rel="stylesheet" href="jquery.alerts.css" type="text/css" media="screen" /> 
+<script type="text/javascript" src="jquery.alerts.js"></script> 
+		<script type="text/javascript"> 
+			
+			$(document).ready( function() {
+				
+				$("a#alert_button").click( function() {
+					jAlert('Menampilkan alert dialog box yang berisi peringatan.', 'Alert Dialog Box');
+				});
+				
+				$("a#confirm_button").click( function() {
+					jConfirm('Apakah anda ingin menghapus data ini?', 'Confirmation Dialog Box', function(r) {
+						if( r ) jAlert('Data berhasil dihapus', 'Confirmation Dialog Box Results | True')
+						else jAlert('Data tidak jadi dihapus.', 'Confirmation Dialog Box Results | False');
+					});
+				});
+				
+				$("a#prompt_button").click( function() {
+					jPrompt('Ketikkan kata pada textbox di bawah ini :', 'Masukkan Kata....', 'Prompt Dialog Box', function(r) {
+						if( r ) jAlert('Kata yang anda masukkan : <b>' + r + '</b>', 'Dialog Box Results');
+					});
+				});
+				
+			});
+			
+		</script> 
+<style>
+p{
+padding:5px;
+border:1px solid #CCCCCC;
+font-family:Arial;
+width:100px;
+font-size:12px;
+margin:0px auto;
+text-align:center;
+}
+a{
+text-decoration:none;
+color:#FF9900;
+font-weight:bold;
+}
+</style>
+
+<div>
+<p> 
+	<a href="#" id="alert_button">Alert Dialog</a> 
+</p> 
+<br />	
+<p> 
+<a href="#" id="confirm_button">Confirm Dialog</a> 
+</p> 
+<br />
+<p> 
+	<a href="#" id="prompt_button">Prompt Dialog</a> 
+</p> 
+</div>
